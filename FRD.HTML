@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Review Detector</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="echarts.min.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- Header with Navigation -->
+    <header id="home">
+        <nav class="navbar">
+            <div class="logo">Fake Review Detector</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#analysis">Analyze</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section Moved to Body -->
+    <section id="analysis" class="hero">
+        <h1>Detect Fake Reviews Instantly!</h1>
+        <p>Enter a product URL to analyze reviews and credibility.</p>
+        <input type="url" id="urlInput" placeholder="Enter product URL" required pattern="https?://.+" oninput="validateURL(this)">
+        <span id="error-message" style="color: red; display: none;">Invalid URL! Use http:// or https://</span>
+        <button onclick="startAnalysis()">Analyze</button>
+        
+        
+    </section>
+
+    <!-- Analysis Progress -->
+    <div id="analysisProgress" class="hidden">🔄 Analyzing...</div>
+
+    <!-- Analysis Results -->
+    <section  class="hidden">
+        <h2>Analysis Results</h2>
+        <div class="stats">
+            <p>Trust Score: <span id="trustScoreValue">-</span></p>
+            <p>Total Reviews: <span id="totalReviewsValue">-</span></p>
+            <p>Suspicious Reviews: <span id="suspiciousReviewsValue">-</span></p>
+            <p>Verified Purchases: <span id="verifiedPurchasesValue">-</span></p>
+            <p>Positive: <span id="positiveSentiment">-</span></p>
+            <p>Neutral: <span id="neutralSentiment">-</span></p>
+            <p>Negative: <span id="negativeSentiment">-</span></p>
+        </div>
+
+        <!-- Charts -->
+        <div class="chart-container">
+            <div class="chart" id="trustScore"></div>
+            <div class="chart" id="patternChart"></div>
+            <div class="chart" id="credibilityChart"></div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="about-container">
+            <h2>About Fake Review Detector</h2>
+            <p>Our AI-powered system helps users identify fake reviews by analyzing review patterns, credibility, and sentiment.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-search"></i>
+                    <h3>Advanced Analysis</h3>
+                    <p>We use AI and machine learning to detect suspicious review patterns.</p>
+                </div>
+    
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Trust & Transparency</h3>
+                    <p>Our goal is to provide users with accurate and unbiased credibility scores.</p>
+                </div>
+    
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Visualization</h3>
+                    <p>Interactive charts and trust scores give users a clear understanding of product credibility.</p>
+                </div>
+            </div>
+    
+            <a href="#analysis" class="btn">Start Analyzing</a>
+        </div>
+    </section>
+    <section id="contact">
+        <h1 class="contact-title">GET IN TOUCH</h1>
+        <div class="contact-container">
+                 <div class="contact-info">
+                <h2>Let's Connect!</h2>
+                <p>
+                    <a href="mailto:hemanth.in22@gmail.com" class="contact-link email">
+                        <i class="fa-solid fa-envelope"></i> HSJSMAVERICKS@gmail.com
+                    </a>
+                </p>
+                <p>
+                    <a href="tel:+916302384423" class="contact-link phone">
+                        <i class="fa-solid fa-phone"></i> +91 6302384423
+                    </a>
+                </p>
+                <p>
+                    <a href="https://maps.app.goo.gl/c7wxTq2CFgGu8Fx47" target="_blank" class="contact-link location">
+                        <i class="fa-solid fa-location-dot"></i> Tirupati, India
+                    </a>
+                </p>
+                
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/hemanth-reddy-bandi" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/HemanthReddyBandi" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/mr__hemanth_reddy_/?hl=en" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://linktr.ee/Hemu_Prince?utm_source=linktree_admin_share&fbclid=PAZXh0bgNhZW0CMTEAAaYD0HdYOSQNG5jRePC7Uv_bmixL8mxYpr12OgT2kjYt_J1eHpcuG3Lp4y4_aem_IxlnHKRJ5QBBKG9umH-a6Q" target="_blank" class="linktree">
+                        <i class="fa-solid fa-tree"></i>  <!-- 🌳 Correct tree icon -->
+                    </a>
+                </div>
+            </div>
+    
+            <div class="contact-form">
+                <h2>Send Me a Message</h2>
+                <form method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <a href="#home"><button type="submit" class="send-btn">Send Message</button></a>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+    <!-- Scroll-to-Top Button -->
+    <button id="scrollToTopBtn" onclick="scrollToTop()">
+        <i class="fa-solid fa-angles-up"></i>
+    </button>
+    
+
+</body>
+</html>
